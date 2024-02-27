@@ -4,7 +4,8 @@ data_age <- data_age %>%
   mutate(age_group= factor(age_group, levels =  c("<1","1-4", "5-14","15-19",
                                        "20-29", "30-39", "40-49",
                                        "50-79", ">=80")),
-         mortality = round(mortality,2))
+         mortality = round(mortality,2),
+         Year =as.integer(Year)) 
 # Heatmap plot
 
 data_jenk <- data_age %>%
@@ -25,16 +26,15 @@ data_age <- data_age %>%
 
 
 Figure1 <- ggplot(data_age, aes(Year, age_group, fill= mort_jenk)) + 
-  geom_tile()+
+  geom_tile() +
   scale_fill_viridis("Mortality", discrete=TRUE,guide = guide_legend(reverse = TRUE)) +
-  xlim(c(1878,1968)) +
   scale_x_continuous( "Year",
-                      labels = c(seq(1880,1965,10)),
-                      breaks = c(seq(1880,1965,10)))+
+                      labels = c(seq(1880,2020,20)),
+                      breaks = c(seq(1880,2020,20)))+
 
   xlab("Year")+
   ylab("Age groups")+
-  ggtitle("Mortality per year & age group")+
+  ggtitle("Mortality (10'000 inhabitants) per year & age group")+
   theme_bw()+
   # scale_x_continuous(
   #   breaks = c(1, 13, 25, 37, 49, 61, 73, 84),
@@ -52,5 +52,7 @@ Figure1 <- ggplot(data_age, aes(Year, age_group, fill= mort_jenk)) +
     axis.title.x  = element_text(size=30),
     axis.title.y  = element_text(size=30)) 
 
-cowplot::save_plot("output/Figure1.pdf", Figure1 ,base_height=15,base_width=25)
+Figure1
+
+cowplot::save_plot("output/Figure1.pdf", Figure1 ,base_height=15,base_width=30)
 
