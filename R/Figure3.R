@@ -10,7 +10,7 @@ data_cases <- cases_canton_monthly %>%
 
 plot_incidence <- ggplot()+
   geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_cases, col="notified cases"),lwd= lwd_line)+
-  # geom_vline(xintercept=as.POSIXct("1943-02-01"), lwd=1, col="black", alpha=0.3) +
+  geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Incidence per 100'000 inhabitants")+
   scale_x_datetime( breaks = date_breaks("60 month"),

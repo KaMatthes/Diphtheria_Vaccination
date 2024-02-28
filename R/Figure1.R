@@ -34,7 +34,7 @@ Figure1 <- ggplot(data_age, aes(Year, age_group, fill= mort_jenk)) +
 
   xlab("Year")+
   ylab("Age groups")+
-  ggtitle("Mortality (10'000 inhabitants) per year & age group")+
+  ggtitle("Mortality per 10'000 inhabitants")+
   theme_bw()+
   # scale_x_continuous(
   #   breaks = c(1, 13, 25, 37, 49, 61, 73, 84),
@@ -44,15 +44,15 @@ Figure1 <- ggplot(data_age, aes(Year, age_group, fill= mort_jenk)) +
     panel.grid.minor.x = element_blank(),
     panel.grid.minor.y = element_blank(),
     panel.grid.major.y = element_blank(),
-    plot.title = element_text(size = 30),
+    plot.title = element_text(size = 40),
+    legend.text = element_text(size = 30),
+    legend.title = element_text(size = 30),
     legend.position = "right",
     legend.key.width= unit(3, "line"),
     legend.key.size= unit(1.5, 'cm'),
     axis.text.x = element_text(size=30),
     axis.title.x  = element_text(size=30),
     axis.title.y  = element_text(size=30)) 
-
-Figure1
 
 cowplot::save_plot("output/Figure1.pdf", Figure1 ,base_height=15,base_width=30)
 
