@@ -55,7 +55,7 @@ data_cases <- data_cases %>%
 
 plot_inc <- ggplot()+
   # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
-  geom_line(data=data_cases, aes(x=as.POSIXct(datum), y= inc_cases, col=Language, lty=Language), lwd=lwd_line) +
+  geom_step(data=data_cases, aes(x=as.POSIXct(datum), y= inc_cases, col=Language, lty=Language), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Incidence per 100'000 inhabitants") +
@@ -128,7 +128,7 @@ data_death <- data_death %>%
 
 plot_death <- ggplot()+
   # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
-  geom_line(data=data_death, aes(x=as.POSIXct(datum), y= inc_death, col=Language, lty=Language), lwd=lwd_line) +
+  geom_step(data=data_death, aes(x=as.POSIXct(datum), y= inc_death, col=Language, lty=Language), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Mortality per 100'000 inhabitants") +
@@ -167,7 +167,7 @@ data_cases <- data_cases %>%
 
 plot_case_fatality <- ggplot()+
   # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
-  geom_line(data=data_cases, aes(x=as.POSIXct(datum), y= case_fatality, col=Language,lty=Language), lwd=lwd_line) +
+  geom_step(data=data_cases, aes(x=as.POSIXct(datum), y= case_fatality, col=Language,lty=Language), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Incidence per 100'000 inhabitants") +
@@ -251,7 +251,7 @@ data_hosp <- data_hosp %>%
 
 plot_hosp <- ggplot()+
   # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
-  geom_line(data=data_hosp, aes(x=as.POSIXct(datum), y= inc_hosp, col=Language,lty=Language), lwd=lwd_line) +
+  geom_step(data=data_hosp, aes(x=as.POSIXct(datum), y= inc_hosp, col=Language,lty=Language), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Hospitalization per 100'000 inhabitants") +
@@ -279,4 +279,4 @@ plot_hosp <- ggplot()+
 
 Figure4 <- cowplot::plot_grid(plot_inc, plot_hosp, plot_death,ncol=1)
 
-cowplot::save_plot("output/Figure4.pdf", Figure4 ,base_height=35,base_width=30)
+cowplot::save_plot("output/Figure4_step.pdf", Figure4 ,base_height=35,base_width=30)

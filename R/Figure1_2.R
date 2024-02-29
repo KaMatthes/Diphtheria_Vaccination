@@ -18,7 +18,7 @@ Figure1_2 <- ggplot()+
   ggtitle("Incidence")+
   theme_bw() +
   theme(
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=30),
     legend.position = c(0.9,0.7),
     legend.text=element_text(size=30),
     legend.key.size = unit(3.5, 'cm'),
