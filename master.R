@@ -33,6 +33,8 @@ library(patchwork)
 library(lillies)
 library(rgeoda)
 library(conflicted)
+library(yll)
+library(vcdExtra)
 
 conflict_prefer("rename", "dplyr")
 conflict_prefer("mutate", "dplyr")

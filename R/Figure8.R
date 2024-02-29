@@ -15,7 +15,7 @@ data_cases <- cases_canton_monthly %>%
 Figure8 <- ggplot()+
   # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
   geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_cases, col= Type_vaccination), lwd=lwd_line) +
-  # geom_vline(xintercept=as.POSIXct("1948-02-01"), lwd=4, col=col_pal[6]) +
+  geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1, col="black", alpha=0.3) +
   # geom_ribbon(data=data_cases,aes(ymin=inc_LL, ymax=inc_UL,x=as.POSIXct(datum), y=inc_fit), linetype=2, alpha=0.3) +
   # facet_wrap(~Canton2, ncol=3)+
   # coord_cartesian(ylim=c(0,50)) +

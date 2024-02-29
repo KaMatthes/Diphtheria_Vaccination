@@ -19,9 +19,9 @@ data_age <- data_age %>%
                          include.lowest = TRUE, right = FALSE),
          mort_jenk=as.character(mort_jenk),
          mort_jenk=replace_na(mort_jenk,"0"),
-         mort_jenk= factor(mort_jenk, levels =  c("0","[0.01,0.46)", "[0.46,1.43)","[1.43,2.22)","[2.22,3.32)",
-                                                  "[3.32,6.95)", "[6.95,10.8)", "[10.8,13.8)","[13.8,21.5)",
-                                                  "[21.5,36.3)", "[36.3,43]")),
+         mort_jenk= factor(mort_jenk, levels =  c("0","[0.01,0.46)", "[0.46,1.96)","[1.96,5.96)","[5.96,8.4)",
+                                                  "[8.4,9.55)", "[9.55,11.6)", "[11.6,15.8)","[15.8,19.9)",
+                                                  "[19.9,27.4)", "[27.4,31.7]")),
          mort_jenk=recode(mort_jenk, "[0.01,0.46)" = "(0.00,0.46)" ))
 
 
