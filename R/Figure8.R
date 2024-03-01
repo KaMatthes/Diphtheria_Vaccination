@@ -1,6 +1,13 @@
+#plot parameter
+
+size_plot <- 30
+size_plot_axis <- 30
+lwd_line <- 1.5
+
+#data
+
 load("data/cases_canton_monthly.RData")
 
-  
 data_cases <- cases_canton_monthly %>%
   filter(Year >=1940 & Year < 1970) %>%
   filter(!Type_vaccination == "Total") %>%
@@ -41,14 +48,14 @@ Figure8 <- ggplot()+
   theme_bw() +
   theme(
     axis.line = element_line(),
-    axis.text.y = element_text(size=30),
-    plot.title = element_text(size = 30),
+    axis.text.y = element_text(size=size_plot),
+    plot.title = element_text(size = size_plot),
     legend.position = c(0.7,0.7),
     legend.key.width= unit(5, "line"),
-    legend.text=element_text(size=30),
-    axis.text.x = element_text(size=30),
-    axis.title.x  = element_text(size=30),
-    axis.title.y  = element_text(size=30)) 
+    legend.text=element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 
 cowplot::save_plot(paste0("output/Figure8.pdf"), Figure8,base_height=10,base_width=20)

@@ -1,3 +1,10 @@
+#plot parameter
+
+size_plot <- 25
+lwd_line <- 1.5
+
+# data
+
 load("data/cases_canton_monthly.RData")
 
 data_cases <- cases_canton_monthly %>%
@@ -24,13 +31,13 @@ plot_incidence <- ggplot()+
   theme(
     axis.line = element_line(),
     plot.margin = margin(10, 10, 10, 30),
-    plot.title = element_text(size = size_text),
-    axis.text.y = element_text(size=size_text),
+    plot.title = element_text(size = size_plot),
+    axis.text.y = element_text(size=size_plot),
     legend.position = "none",
     legend.text=element_text(size=15),
-    axis.text.x = element_text(size=size_text),
-    axis.title.x  = element_text(size=size_text),
-    axis.title.y  = element_text(size=size_text)) 
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
   
 data.cases.gr <- cases_canton_monthly %>%
@@ -64,17 +71,18 @@ plot_seasonal <- ggplot() +
   xlab("Month") +
   ylab("Incidence per 100'000 inhabitants")+
   ggtitle("B) Monthly incidence trend by year group") +
+  guides(fill=guide_legend(nrow=2,byrow=TRUE))+
   theme_bw() +
   theme(
     axis.line = element_line(),
     plot.margin = margin(10, 10, 10, 30),
-    plot.title = element_text(size = size_text),
-    axis.text.y = element_text(size=size_text),
+    plot.title = element_text(size = size_plot),
+    axis.text.y = element_text(size=size_plot),
     legend.position = "bottom",
-    legend.text=element_text(size=15),
-    axis.text.x = element_text(size=size_text),
-    axis.title.x  = element_text(size=size_text),
-    axis.title.y  = element_text(size=size_text)) 
+    legend.text=element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 
 data.time <- cases_canton_monthly %>%
@@ -96,13 +104,13 @@ plot_monthly_trend <- ggsubseriesplot(cases_timeseries, lwd=2)+
   theme(
     axis.line = element_line(),
     plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=size_text),
-    plot.title = element_text(size = size_text),
+    axis.text.y = element_text(size=size_plot),
+    plot.title = element_text(size = size_plot),
     legend.position = "none",
     legend.text=element_text(size=15),
-    axis.text.x = element_text(size=size_text),
-    axis.title.x  = element_text(size=size_text),
-    axis.title.y  = element_text(size=size_text)) 
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 
 Figure3 <- cowplot::plot_grid(plot_incidence,NULL,plot_seasonal,NULL,plot_monthly_trend,
@@ -110,4 +118,4 @@ Figure3 <- cowplot::plot_grid(plot_incidence,NULL,plot_seasonal,NULL,plot_monthl
                                     rel_heights = c(1,0,1,0,1))
 
 
-cowplot::save_plot(paste0("output/Figure3.pdf"), Figure3,base_height=20,base_width=15)
+cowplot::save_plot(paste0("output/Figure3.pdf"), Figure3,base_height=25,base_width=15)

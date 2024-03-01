@@ -1,3 +1,12 @@
+
+#plot parameter
+
+size_plot <- 30
+size_plot_axis <- 30
+lwd_line <- 1.5
+
+#data
+
 load("data/fitted_cases_year_Total_GE.RData")
 data_ch_inc  <- fitted_cases_year %>%
   rename(cases = cases_c3)%>%
@@ -54,21 +63,21 @@ Figure61 <- ggplot(data=subset(data_pred, Var=="Incidence - Switzerland (excludi
   ggtitle("Incidence - Switzerland (excluding Geneva)")+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure62 <- ggplot(data=subset(data_pred, Var=="Incidence - Geneva"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
@@ -86,21 +95,21 @@ Figure62 <- ggplot(data=subset(data_pred, Var=="Incidence - Geneva"))+
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure63 <- ggplot(data=subset(data_pred, Var=="Mortality - Switzerland (excluding Geneva)"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
@@ -118,21 +127,21 @@ Figure63 <- ggplot(data=subset(data_pred, Var=="Mortality - Switzerland (excludi
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure64 <- ggplot(data=subset(data_pred, Var=="Mortality - Geneva"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
@@ -150,60 +159,23 @@ Figure64 <- ggplot(data=subset(data_pred, Var=="Mortality - Geneva"))+
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure6 <- cowplot::plot_grid(Figure61, Figure63, Figure62,Figure64,ncol=2)
 
 cowplot::save_plot("output/Figure6.pdf", Figure6 ,base_height=15,base_width=25)
 
-# 
-# Figure6 <- ggplot(data=data_pred)+
-#   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
-#   geom_line( aes(x=Year, y=inc, col="observed",lty="observed"),lwd= lwd_line)+
-#   # geom_vline(xintercept=as.POSIXct("1945-02-01"), lwd=4, col="green") +
-#   geom_vline(xintercept=1933, lwd=1, col="black", alpha=0.3) +
-#   geom_ribbon(aes(ymin=inc_LL, ymax=inc_UL,x=Year, y=inc_fit), linetype=2, alpha=0.1) +
-#   facet_wrap(~Var,scales = "free_y") +
-#   xlab("Year") +
-#   ylab("Incidence and Mortality per 100'000 inhabitants")+
-#   scale_color_manual("",
-#                      values=c("grey40","black"))+
-#   scale_linetype_manual("",
-#                      values=c("longdash","solid"))+
-#   theme_bw() +
-#   theme(
-#     strip.text = element_text(size=25),
-#     axis.line = element_line(),
-#     # plot.margin = margin(10, 10, 10, 30),
-#     axis.text.y = element_text(size=20),
-#     legend.position = "bottom",
-#     # panel.grid.major = element_blank(),
-#     # panel.grid.minor = element_blank(),
-#     legend.text=element_text(size=25),
-#     legend.key.size = unit(3.5, 'cm'),
-#     # legend.spacing.x = unit(3.5, 'cm'),
-#     axis.text.x = element_text(size=25),
-#     axis.title.x  = element_text(size=25),
-#     axis.title.y  = element_text(size=25)) 
-# 
-# 
-# cowplot::save_plot("output/Figure6.pdf", Figure6 ,base_height=15,base_width=25)
-# 
-# 
-# 
-# 
-# 

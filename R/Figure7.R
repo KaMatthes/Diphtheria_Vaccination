@@ -1,3 +1,12 @@
+
+#plot parameter
+
+size_plot <- 30
+size_plot_axis <- 30
+lwd_line <- 1.5
+
+#data
+
 load("data/fitted_cases_year_Recommendation.RData")
 data_recom_inc  <- fitted_cases_year %>%
   rename(cases = cases_year_l)%>%
@@ -54,21 +63,21 @@ Figure71 <-ggplot(data=subset(data_pred, Var=="Incidence - Recommended vaccinati
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure72 <-ggplot(data=subset(data_pred, Var=="Incidence - Compulsory vaccination"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
@@ -86,22 +95,21 @@ Figure72 <-ggplot(data=subset(data_pred, Var=="Incidence - Compulsory vaccinatio
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
-
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure73 <- ggplot(data=subset(data_pred, Var=="Mortality - Recommended vaccination"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
@@ -119,21 +127,21 @@ Figure73 <- ggplot(data=subset(data_pred, Var=="Mortality - Recommended vaccinat
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure74 <- ggplot(data=subset(data_pred, Var=="Mortality - Compulsory vaccination"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
@@ -151,21 +159,21 @@ Figure74 <- ggplot(data=subset(data_pred, Var=="Mortality - Compulsory vaccinati
                         values=c("longdash","solid"))+
   theme_bw() +
   theme(
-    strip.text = element_text(size=25),
+    strip.text = element_text(size=size_plot),
     axis.line = element_line(),
     # plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=20),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
     # panel.grid.major = element_blank(),
     # panel.grid.minor = element_blank(),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
     # legend.spacing.x = unit(1.5, 'cm'),
     # legend.spacing.y = unit(0.5, 'cm'),
-    plot.title = element_text(size=25),
-    axis.text.x = element_text(size=25),
-    axis.title.x  = element_text(size=25),
-    axis.title.y  = element_text(size=25)) 
+    plot.title = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot_axis),
+    axis.title.y  = element_text(size=size_plot_axis)) 
 
 Figure7 <- cowplot::plot_grid(Figure71, Figure73, Figure72,Figure74,ncol=2)
 

@@ -1,3 +1,11 @@
+#plot parameter
+
+size_plot <- 35
+lwd_line <- 1.8
+
+#data
+
+
 load("data/cases_canton_yearly.RData")
 
 
@@ -66,18 +74,18 @@ plot_inc <- ggplot()+
                      values=c(mypalette_c[2],mypalette_c[1],mypalette_c[3],mypalette_c[4]))+
   scale_linetype_manual("",
                         values=c("longdash","solid","solid","solid"))+
-  ggtitle("Incidence")+
+  ggtitle("A) Incidence")+
   theme_bw() +
   theme(
-    axis.text.y = element_text(size=30),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.9,0.7),
-    legend.text=element_text(size=30),
+    legend.text=element_text(size=size_plot),
     legend.key.size = unit(3.5, 'cm'),
     legend.spacing.x = unit(2.5, 'cm'),
-    axis.text.x = element_text(size=30),
-    axis.title.x  = element_text(size=30),
-    axis.title.y  = element_text(size=30),
-    plot.title = element_text(size=30))
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot),
+    plot.title = element_text(size=size_plot))
 
 
 load("data/death_canton_year.RData")
@@ -142,18 +150,18 @@ plot_death <- ggplot()+
                      values=c("longdash","solid","solid","solid"))+
   scale_size_manual("",
                         values=c(4,1.5,1.5,1.5))+
-  ggtitle("Mortality")+
+  ggtitle("C) Mortality")+
   theme_bw() +
   theme(
-    axis.text.y = element_text(size=30),
+    axis.text.y = element_text(size=size_plot),
     legend.position = "none",
-    legend.text=element_text(size=30),
+    legend.text=element_text(size=size_plot),
     legend.key.size = unit(2.5, 'cm'),
     legend.spacing.x = unit(2.5, 'cm'),
-    axis.text.x = element_text(size=30),
-    axis.title.x  = element_text(size=30),
-    axis.title.y  = element_text(size=30),
-    plot.title = element_text(size=30))
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot),
+    plot.title = element_text(size=size_plot))
 
 data_death <- data_death %>%
   select(Year, Language, death_y)
@@ -182,15 +190,15 @@ plot_case_fatality <- ggplot()+
   ggtitle("Case-Fatality-Rate")+
   theme_bw() +
   theme(
-    axis.text.y = element_text(size=30),
+    axis.text.y = element_text(size=size_plot),
     legend.position = c(0.9,0.9),
-    legend.text=element_text(size=30),
+    legend.text=element_text(size=size_plot),
     legend.key.size = unit(2.5, 'cm'),
     legend.spacing.x = unit(2.5, 'cm'),
-    axis.text.x = element_text(size=30),
-    axis.title.x  = element_text(size=30),
-    axis.title.y  = element_text(size=30),
-    plot.title = element_text(size=30))
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot),
+    plot.title = element_text(size=size_plot))
 
 
 
@@ -263,20 +271,20 @@ plot_hosp <- ggplot()+
                      values=c(mypalette_c[2],mypalette_c[1],mypalette_c[3],mypalette_c[4]))+
   scale_linetype_manual("",
                         values=c("longdash","solid","solid","solid"))+
-  ggtitle("Hospitalization")+
+  ggtitle("B) Hospitalization")+
   theme_bw() +
   theme(
-    axis.text.y = element_text(size=30),
+    axis.text.y = element_text(size=size_plot),
     legend.position = "none",
-    legend.text=element_text(size=30),
+    legend.text=element_text(size=size_plot),
     legend.key.size = unit(2.5, 'cm'),
     legend.spacing.x = unit(2.5, 'cm'),
-    axis.text.x = element_text(size=30),
-    axis.title.x  = element_text(size=30),
-    axis.title.y  = element_text(size=30),
-    plot.title = element_text(size=30))
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot),
+    plot.title = element_text(size=size_plot))
 
 
 Figure4 <- cowplot::plot_grid(plot_inc, plot_hosp, plot_death,ncol=1)
 
-cowplot::save_plot("output/Figure4_step.pdf", Figure4 ,base_height=35,base_width=30)
+cowplot::save_plot("output/Figure4.pdf", Figure4 ,base_height=35,base_width=30)

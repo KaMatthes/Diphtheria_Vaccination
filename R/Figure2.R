@@ -1,3 +1,10 @@
+#plot parameter
+
+size_plot <- 25
+lwd_line <- 1.5
+
+# data
+
 load("data/death_canton_year.RData")
 data_death <- death_canton_year %>%
   filter(Canton2=="Total") %>%
@@ -41,39 +48,39 @@ data_all <- rbind(data_death,data_cases, data_fat) %>%
 
 
 plot_cases <- ggplot(data_cases, aes(Year, inc, col="Incidence")) + 
-  geom_line() +
+  geom_step() +
   ylab("Incidence per 100'000 inhabitants")+
   theme_bw() +
   theme(
     axis.line = element_line(),
-    axis.text.y = element_text(size=20),
-    axis.text.x = element_text(size=20),
-    axis.title.x  = element_text(size=20),
-    axis.title.y  = element_text(size=20)) 
+    axis.text.y = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 
 plot_deaths <- ggplot(data_death, aes(Year, inc,col="Mortality")) + 
-  geom_line() +
+  geom_step() +
   ylab("Mortality per 100'000 inhabitants")+
   theme_bw() +
   theme(
     axis.line = element_line(),
-    axis.text.y = element_text(size=20),
-    axis.text.x = element_text(size=20),
-    axis.title.x  = element_text(size=20),
-    axis.title.y  = element_text(size=20)) 
+    axis.text.y = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 
 plot_fat<- ggplot(data_fat, aes(Year, inc,col="Case fatality rate")) + 
-  geom_line() +
+  geom_step() +
   ylab("Case fatality rate in %")+
   theme_bw() +
   theme(
     axis.line = element_line(),
-    axis.text.y = element_text(size=20),
-    axis.text.x = element_text(size=20),
-    axis.title.x  = element_text(size=20),
-    axis.title.y  = element_text(size=20)) 
+    axis.text.y = element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 # find the coefficenct
 rebase_coef <- data_all %>% 
@@ -85,9 +92,9 @@ rebase_coef <- data_all %>%
 
 plot_total <- ggplot()+
   geom_vline(xintercept=1943, lwd=1, col="black", alpha=0.3) +
-  geom_line(data=data_cases, aes(Year, inc, col="Incidence"),lwd=lwd_line) +
-  geom_line(data=data_death, aes(Year, inc/0.209, col="Mortality"),lwd=lwd_line) +
-  geom_line(data=data_fat, aes(Year, inc/0.0420, col="Case fatality rate"),lwd=lwd_line) +
+  geom_step(data=data_cases, aes(Year, inc, col="Incidence"),lwd=lwd_line) +
+  geom_step(data=data_death, aes(Year, inc/0.209, col="Mortality"),lwd=lwd_line) +
+  geom_step(data=data_fat, aes(Year, inc/0.0420, col="Case fatality rate"),lwd=lwd_line) +
   ylab("Incidence per 100'000 inhabitants") +
   scale_color_manual("", 
                      labels=c("Case fatality rate", "Incidence","Mortality"),
@@ -117,12 +124,12 @@ plot_total <- ggplot()+
     # panel.grid.minor = element_blank(),
     legend.key.size = unit(2.5, 'cm'),
     legend.spacing.x = unit(1.5, 'cm'),
-    legend.text=element_text(size=20),
+    legend.text=element_text(size=size_plot),
     # legend.key.size = unit(3.5, 'cm'),
     # legend.spacing.x = unit(3.5, 'cm'),
-    axis.text.x = element_text(size=20),
-    axis.title.x  = element_text(size=20),
-    axis.title.y  = element_text(size=20)) 
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 
 Figure2 <- wrap_elements(get_plot_component(plot_fat, "ylab-l")) +

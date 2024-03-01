@@ -1,3 +1,10 @@
+#plot parameter
+
+size_plot <- 35
+lwd_line <- 1.5
+
+#data
+
 function_plot_quartal <- function (Start_year, End_year, Title, legend_no) {
 
   load("data/cases_canton_monthly.RData")
@@ -100,15 +107,15 @@ plot_Month <- ggplot()+
   theme(
     axis.line = element_line(),
     plot.margin = margin(10, 10, 10, 30),
-    axis.text.y = element_text(size=30),
-    plot.title = element_text(size = 30),
+    axis.text.y = element_text(size=size_plot),
+    plot.title = element_text(size = size_plot),
     legend.position = legend_no,
     legend.key.size = unit(3.5, 'cm'),
     legend.spacing.x = unit(2.5, 'cm'),
-    legend.text=element_text(size=30),
-    axis.text.x = element_text(size=30),
-    axis.title.x  = element_text(size=30),
-    axis.title.y  = element_text(size=30)) 
+    legend.text=element_text(size=size_plot),
+    axis.text.x = element_text(size=size_plot),
+    axis.title.x  = element_text(size=size_plot),
+    axis.title.y  = element_text(size=size_plot)) 
 
 return(plot_Month)
 
