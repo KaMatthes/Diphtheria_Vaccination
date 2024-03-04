@@ -1,5 +1,5 @@
 # .libPaths(c("C:/Users/kmatth/AppData/Local/R/win-library/4.2", "C:/Program Files/R/R-4.2.2/library"))
-# test
+
 library(tidyverse)
 library(openxlsx)
 library(data.table)
@@ -66,8 +66,7 @@ mypalette_c <- c("#440154FF", "#238a8dff", "#94D840FF", "#FDE725FF")
 
 mypalette2 <- viridis(2, alpha = 1, begin = 0, end = 1, direction = 1, option = "D")
 
-lwd_line <- 1.5
-size_text <-15
+
 
 # source
 source("R/Figure_incidence_total.R")
