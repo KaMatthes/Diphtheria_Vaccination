@@ -24,13 +24,15 @@ hyper.iid <- list(theta = list(prior="pc.prec", param=c(1, 0.01)))
   # # f(timeID, model='seasonal',season.length=12)
   
   
-  formula <- cases_pre ~ 1 + offset(log(pop_c3)) + Year+
+  formula <- cases_pre ~ 1 + offset(log(pop_c3)) + Year +
     # f(MonthID,model='iid',  constr = TRUE,hyper=hyper.iid)+
     # f(MonthID,model='rw1', scale.model = TRUE, cyclic = TRUE)+
     # f(trendID, model='ar1', constr = TRUE) 
     # f(treID, model='ar1', cyclic = TRUE,hyper=hyper.iid) +
     # f(seasID, model='iid',  constr = TRUE,hyper=hyper.iid)
-   f(seasID, model='seasonal', season.length = Season_length)
+    # f(YearID, model = "iid") +
+    # f(seasID, model='seasonal', season.length = Season_length) 
+    f(seasID, model='seasonal', season.length = Season_length) 
   # #
     # f(seasID2, model='rw1',  constr = TRUE, scale.model = TRUE, cyclic = TRUE)
     # 
@@ -47,7 +49,8 @@ hyper.iid <- list(theta = list(prior="pc.prec", param=c(1, 0.01)))
     group_by(Year) %>%
     mutate(trendID = cur_group_id(),
            seasID=trendID,
-           MonthID=Month) %>%
+           MonthID=Month,
+           YearID=Year) %>%
     arrange(trendID) %>%
     ungroup()
       

@@ -23,8 +23,9 @@ hyper.iid <- list(theta = list(prior="pc.prec", param=c(1, 0.01)))
   # 
   formula <-death_pre ~ 1 + offset(log(pop_l)) + Year +
     # f(trendID, model='ar1')  +
-    f(seasID, model='seasonal', season.length = Season_length)
-
+    # f(YearID, model = "iid") +
+    # f(seasID, model='seasonal', season.length = Season_length) 
+    f(seasID, model='seasonal', season.length = Season_length) 
 
   # formula <- cases_pre ~ 1 + offset(log(population)) + 
   #   f(trendID, model='ar1')+
@@ -34,7 +35,8 @@ hyper.iid <- list(theta = list(prior="pc.prec", param=c(1, 0.01)))
     arrange(Year) %>%
     group_by(Year) %>%
     mutate(trendID = cur_group_id(),
-           seasID=trendID) %>%
+           seasID=trendID,
+           YearID = Year) %>%
     arrange(trendID) %>%
     ungroup()
     

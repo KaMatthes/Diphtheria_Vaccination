@@ -21,24 +21,17 @@ control.family <- inla.set.control.family.default()
   # # f(timeID, model='seasonal',season.length=12)
   
   
-  formula <- death_pre ~ offset(log(pop_c3)) + Year+
-    # f(Year, model='iid', constr = TRUE) +
-     # f(timeID, model='rw1', constr = TRUE, scale.model = TRUE, cyclic = TRUE)
-    # f(trendID, model='ar1') +
-    f(seasID, model='seasonal', season.length = Season_length) 
-  # f(Year, model='seasonal', season.length = 24)
-    # 
-    # f(TrendID,model='rw1', constr = TRUE, scale.model = TRUE, cyclic = TRUE)
-    # f(Year, model='iid') 
-    # f(timeID, model='seasonal', season.length = 2)
-    # f(timeID, model='rw1',scale.model = T,cyclic = TRUE, hyper=hyper.iid)
-  # f(timeID, model='seasonal',season.length=12)
+  formula <- death_pre ~ offset(log(pop_c3)) + Year +
+    # f(YearID, model = "iid") +
+    # f(seasID, model='seasonal', season.length = Season_length) 
+   f(seasID, model='seasonal', season.length = Season_length) 
   
       reg_data <-  dat.death %>%
         arrange(Year) %>%
         group_by(Year) %>%
         mutate(trendID = cur_group_id(),
-               seasID=trendID) %>%
+               seasID=trendID,
+               YearID=Year) %>%
         arrange(trendID) %>%
         ungroup()
         # mutate(

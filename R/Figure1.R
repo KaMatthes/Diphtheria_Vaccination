@@ -134,7 +134,7 @@ data_life <- data_age %>%
          YLL_crude2 = round(YLL_crude2,4),
          YLL_mean_age = LYL_total/death_total)
 
-write.xlsx(data_life,file="data/years_life_lost.xlsx",rowNames=FALSE, overwrite = TRUE)
+# write.xlsx(data_life,file="data/years_life_lost.xlsx",rowNames=FALSE, overwrite = TRUE)
 
 data_mod <- data.frame(Year =seq(1970, 2022,1),YLL_crude2=0 )
 data_life <- data_life %>%
