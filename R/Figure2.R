@@ -107,26 +107,15 @@ plot_total <- ggplot()+
                       labels = c(seq(1880,2020,10)),
                       breaks = c(seq(1880,2020,10)))+
 
-  # scale_x_continuous( "Year", 
-  #                     labels = as.character(seq(min(data_all$Year), max(data_all$Year), by = 15)), 
-  #                     breaks = seq(min(data_all$Year), max(data_all$Year), by = 15), 
-  #                     expand=c(0,0))+
-
   theme_bw() +
   theme(
-    # axis.line = element_line(),
-    #       plot.margin = margin(10, 10, 10, 30),
     axis.line = element_line(),
     plot.margin = margin(10, 10, 10, 30),
     axis.text.y = element_text(size=20),
     legend.position = c(0.8,0.7),
-    # panel.grid.major = element_blank(),
-    # panel.grid.minor = element_blank(),
     legend.key.size = unit(2.5, 'cm'),
     legend.spacing.x = unit(1.5, 'cm'),
     legend.text=element_text(size=size_plot),
-    # legend.key.size = unit(3.5, 'cm'),
-    # legend.spacing.x = unit(3.5, 'cm'),
     axis.text.x = element_text(size=size_plot),
     axis.title.x  = element_text(size=size_plot),
     axis.title.y  = element_text(size=size_plot)) 
@@ -138,7 +127,7 @@ Figure2 <- wrap_elements(get_plot_component(plot_fat, "ylab-l")) +
   wrap_elements(get_y_axis(plot_deaths)) +
   plot_total + 
   plot_layout(widths = c(1, 1, 1, 1, 40))
-# plot_layout(widths = c(3, 1, 3, 1, 40))
+
 #   
   
 cowplot::save_plot(paste0("output/Figure2.pdf"), Figure2,base_height=10,base_width=20)

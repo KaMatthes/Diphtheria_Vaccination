@@ -65,15 +65,10 @@ Figure71 <-ggplot(data=subset(data_pred, Var=="Incidence - Recommended vaccinati
   theme(
     strip.text = element_text(size=size_plot),
     axis.line = element_line(),
-    # plot.margin = margin(10, 10, 10, 30),
     axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
-    # panel.grid.major = element_blank(),
-    # panel.grid.minor = element_blank(),
     legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
-    # legend.spacing.x = unit(1.5, 'cm'),
-    # legend.spacing.y = unit(0.5, 'cm'),
     plot.title = element_text(size=size_plot),
     axis.text.x = element_text(size=size_plot),
     axis.title.x  = element_text(size=size_plot_axis),
@@ -82,7 +77,6 @@ Figure71 <-ggplot(data=subset(data_pred, Var=="Incidence - Recommended vaccinati
 Figure72 <-ggplot(data=subset(data_pred, Var=="Incidence - Compulsory vaccination"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
   geom_line( aes(x=Year, y=inc, col="observed",lty="observed"),lwd= lwd_line)+
-  # geom_vline(xintercept=as.POSIXct("1945-02-01"), lwd=4, col="green") +
   geom_vline(xintercept=1944, lwd=1, col="black", alpha=0.3) +
   geom_ribbon(aes(ymin=inc_LL, ymax=inc_UL,x=Year, y=inc_fit), linetype=2, alpha=0.1) +
   xlab("Year") +
@@ -97,15 +91,10 @@ Figure72 <-ggplot(data=subset(data_pred, Var=="Incidence - Compulsory vaccinatio
   theme(
     strip.text = element_text(size=size_plot),
     axis.line = element_line(),
-    # plot.margin = margin(10, 10, 10, 30),
     axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
-    # panel.grid.major = element_blank(),
-    # panel.grid.minor = element_blank(),
     legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
-    # legend.spacing.x = unit(1.5, 'cm'),
-    # legend.spacing.y = unit(0.5, 'cm'),
     plot.title = element_text(size=size_plot),
     axis.text.x = element_text(size=size_plot),
     axis.title.x  = element_text(size=size_plot_axis),
@@ -129,15 +118,10 @@ Figure73 <- ggplot(data=subset(data_pred, Var=="Mortality - Recommended vaccinat
   theme(
     strip.text = element_text(size=size_plot),
     axis.line = element_line(),
-    # plot.margin = margin(10, 10, 10, 30),
     axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
-    # panel.grid.major = element_blank(),
-    # panel.grid.minor = element_blank(),
     legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
-    # legend.spacing.x = unit(1.5, 'cm'),
-    # legend.spacing.y = unit(0.5, 'cm'),
     plot.title = element_text(size=size_plot),
     axis.text.x = element_text(size=size_plot),
     axis.title.x  = element_text(size=size_plot_axis),
@@ -146,7 +130,6 @@ Figure73 <- ggplot(data=subset(data_pred, Var=="Mortality - Recommended vaccinat
 Figure74 <- ggplot(data=subset(data_pred, Var=="Mortality - Compulsory vaccination"))+
   geom_line( aes(x=Year, y=inc_fit, col="fitted",lty="fitted"), lwd=lwd_line) +
   geom_line( aes(x=Year, y=inc, col="observed",lty="observed"),lwd= lwd_line)+
-  # geom_vline(xintercept=as.POSIXct("1945-02-01"), lwd=4, col="green") +
   geom_vline(xintercept=1944, lwd=1, col="black", alpha=0.3) +
   geom_ribbon(aes(ymin=inc_LL, ymax=inc_UL,x=Year, y=inc_fit), linetype=2, alpha=0.1) +
   xlab("Year") +
@@ -161,15 +144,10 @@ Figure74 <- ggplot(data=subset(data_pred, Var=="Mortality - Compulsory vaccinati
   theme(
     strip.text = element_text(size=size_plot),
     axis.line = element_line(),
-    # plot.margin = margin(10, 10, 10, 30),
     axis.text.y = element_text(size=size_plot),
     legend.position = c(0.8,0.85),
-    # panel.grid.major = element_blank(),
-    # panel.grid.minor = element_blank(),
     legend.text=element_text(size=size_plot),
     legend.key.width= unit(5, "line"),
-    # legend.spacing.x = unit(1.5, 'cm'),
-    # legend.spacing.y = unit(0.5, 'cm'),
     plot.title = element_text(size=size_plot),
     axis.text.x = element_text(size=size_plot),
     axis.title.x  = element_text(size=size_plot_axis),

@@ -90,16 +90,13 @@ data_cases <- data_cases %>%
 
 
 plot_Month <- ggplot()+
-  # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
   geom_line(data=data_cases, aes(x=as.POSIXct(year_month), y= Quarter_inc, col=Language),lwd= lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Incidence per 100'000 inhabitants") +
   scale_x_datetime( breaks = date_breaks("6 month"),
                     labels = label_date_short())+
-                    # limits =c(as.POSIXct("1910-01-01"), max(as.POSIXct("1969-01-01"))),
-  #                   # expand = c(0,0)) +
-  # ylim(c(0,35))+
+
   scale_color_manual("",
                      values=c(mypalette_c[1],mypalette_c[3],mypalette_c[4]))+
   ggtitle(Title)+

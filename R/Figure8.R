@@ -20,31 +20,17 @@ data_cases <- cases_canton_monthly %>%
 
 
 Figure8 <- ggplot()+
-  # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
   geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_cases, col= Type_vaccination), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1, col="black", alpha=0.3) +
-  # geom_ribbon(data=data_cases,aes(ymin=inc_LL, ymax=inc_UL,x=as.POSIXct(datum), y=inc_fit), linetype=2, alpha=0.3) +
-  # facet_wrap(~Canton2, ncol=3)+
-  # coord_cartesian(ylim=c(0,50)) +
   xlab("Year") +
   ylab("Incidence per 100'000 inhabitants")+
   scale_x_datetime( breaks = date_breaks("24 month"),
                     labels = label_date_short(),
-                    # limits =c(as.POSIXct("1910-01-01"), max(as.POSIXct("1969-01-01"))),
                     expand = c(0,0)) +
-  # scale_color_manual("",
-  #                    labels=c("Compulsory", "Recommended"),
-  #                    values=c(mypalette_c[1],mypalette_c[4]))+
-  # 
   scale_color_manual("",
                      labels=c("Compulsory", "Recommended"),
                      values=c("grey70","grey20"))+
-  # scale_linetype_manual("",
-  #                       labels=c("Compulsory", "Recommended"),
-  #                       values=c("longdash","solid"))+
 
-  # ggtitle("Incidence - Monthly")+
-  # guides(linewidth = guide_legend(override.aes = list(size=20)))+
   theme_bw() +
   theme(
     axis.line = element_line(),

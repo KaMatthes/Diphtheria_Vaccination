@@ -174,15 +174,12 @@ data_cases <- data_cases %>%
 
 
 plot_case_fatality <- ggplot()+
-  # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
   geom_step(data=data_cases, aes(x=as.POSIXct(datum), y= case_fatality, col=Language,lty=Language), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
   ylab("Incidence per 100'000 inhabitants") +
   scale_x_datetime( breaks = date_breaks("4 year"),
                     labels = label_date_short())+
-  # limits =c(as.POSIXct("1910-01-01"), max(as.POSIXct("1969-01-01"))),
-  # expand = c(0,0)) +
   scale_color_manual("",
                      values=mypalette_c)+
   scale_linetype_manual("",
@@ -258,7 +255,6 @@ data_hosp <- data_hosp %>%
   
 
 plot_hosp <- ggplot()+
-  # geom_line(data=data_cases, aes(x=as.POSIXct(datum), y=inc_fit, col="fitting values"), lwd=3) +
   geom_step(data=data_hosp, aes(x=as.POSIXct(datum), y= inc_hosp, col=Language,lty=Language), lwd=lwd_line) +
   geom_vline(xintercept=as.POSIXct(ymd("1944-01-01")), lwd=1.2, col="black", alpha=0.3) +
   xlab("Year") +
