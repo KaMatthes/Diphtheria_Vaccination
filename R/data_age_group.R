@@ -33,7 +33,6 @@ population <- read.csv("data_raw/population_hmdb.txt", header=TRUE, sep="") %>%
   mutate(Age= recode(Age, "110+" = "110"),
        Age= as.integer(Age),
        age_group = case_when(Age==0 ~ "<1",
-                             Age==1 ~ "1",
                              Age>=1 & Age <=4 ~ "1-4",
                              Age>=5 & Age <=14 ~ "5-14",
                              Age>=15 & Age <=19 ~ "15-19",
@@ -44,11 +43,13 @@ population <- read.csv("data_raw/population_hmdb.txt", header=TRUE, sep="") %>%
                              Age >=80 ~ ">=80")) %>%
   select(Year, age_group, Total) %>%
   group_by(Year, age_group) %>%
-  mutate(Total_pop = sum(Total)) %>%
+  mutate(pop_age = sum(Total)) %>%
   distinct(Year, age_group, .keep_all = TRUE) %>%
   ungroup()%>%
   select(-Total)%>%
-  mutate(Total_pop = round(Total_pop))
+  mutate(pop_age= round(pop_age)) %>%
+  group_by(Year) %>%
+  mutate(total_pop = sum(pop_age))
 
 age_o <- c("<1","1-4", "5-14","15-19",
            "20-29", "30-39", "40-49",
@@ -56,7 +57,9 @@ age_o <- c("<1","1-4", "5-14","15-19",
 
 data_age <- alldata %>%
   left_join(population) %>%
-  mutate(mortality = Total_death/Total_pop*10000) %>%
+  mutate(mortality = Total_death/pop_age*10000,
+         mortality2 = Total_death/pop_age*100000,
+         mortality_pop_total = Total_death/total_pop*100000) %>%
   arrange(factor(age_group, levels =  c("<1","1-4", "5-14","15-19",
                                         "20-29", "30-39", "40-49",
                                         "50-79", ">=80")))
