@@ -23,7 +23,7 @@ hyper.iid <- list(theta = list(prior="pc.prec", param=c(1, 0.01)))
   #   f(timeID, model='rw1',scale.model = T,cyclic = TRUE, hyper=hyper.iid)
   # # f(timeID, model='seasonal',season.length=12)
   
-  # 
+  
   formula <- cases_pre ~ 1 + offset(log(pop_c3)) + Year+
     # f(MonthID,model='iid',  constr = TRUE,hyper=hyper.iid)+
     # f(MonthID,model='rw1', scale.model = TRUE, cyclic = TRUE)+
