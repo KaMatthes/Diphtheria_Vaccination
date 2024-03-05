@@ -11,7 +11,6 @@ Müller SM, Matthes KL, Lang P, van Wijhe M, Rühli F, Staub K
 The data is public available via Zenodo:
 <br >
 <br >
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7506206.svg)](https://doi.org/10.5281/zenodo.7506206)
 
 
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
